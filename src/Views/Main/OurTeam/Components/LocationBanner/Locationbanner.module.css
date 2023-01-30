@@ -1,0 +1,163 @@
+.componentWrapper {
+    width: 100%;
+
+    margin-block: 80px;
+}
+
+/* BANNER */
+.banner {
+    width: 100%;
+    position: relative;
+    isolation: isolate;
+}
+
+/* --------------------------------------------------- MEDIA QUERIES */
+@media screen and (min-width: 576px) {
+    .banner {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        isolation: isolate;
+    }
+
+    .left,
+    .right {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        top: 0;
+
+        display: grid;
+        place-items: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        transition: 200ms ease-in-out;
+        cursor: pointer;
+        z-index: 1;
+        -webkit-clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+
+        color: transparent;
+        user-select: none;
+    }
+
+    .left {
+        left: 0;
+
+    }
+
+    .right {
+        right: 0;
+    }
+
+    .left>p,
+    .right>p {
+        width: fit-content;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 140%;
+        text-align: center;
+        pointer-events: none;
+
+        color: inherit;
+        transition: 200ms ease-in-out;
+    }
+
+    /* LEFT SELECTION */
+    .left:hover,
+    .left:where([isselected="true"]) {
+        width: 75%;
+        z-index: 2;
+        -webkit-clip-path: polygon(0 0%, 100% 0, calc(100% - 45px) 100%, 0% 100%);
+        clip-path: polygon(0 0%, 100% 0, calc(100% - 45px) 100%, 0% 100%);
+        color: white;
+    }
+
+    .left:hover~.right,
+    .left:where([isselected="true"])~.right {
+        z-index: 1;
+    }
+
+    /* RIGHT SELECTION */
+    .right:hover,
+    .right:where([isselected="true"]) {
+        width: 75%;
+        z-index: 2;
+        -webkit-clip-path: polygon(45px 0%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(45px 0%, 100% 0%, 100% 100%, 0% 100%);
+        color: white;
+    }
+
+    .right:hover~.left,
+    .right:where([isselected="true"])~.left {
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left,
+    .right {
+        height: 50px;
+        width: 100%;
+
+        display: grid;
+        place-items: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        user-select: none;
+        cursor: pointer;
+        color: transparent;
+        transition: 250ms ease-in-out;
+    }
+
+    .left>p,
+    .right>p {
+        width: fit-content;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 140%;
+        text-align: center;
+        pointer-events: none;
+
+        color: inherit;
+        transition: 200ms ease-in-out;
+    }
+
+    /* LEFT SELECTED */
+    .left:hover,
+    .left:where([isselected="true"]) {
+        height: 150px;
+        color: white;
+    }
+
+    .left:hover~.right,
+    .left:where([isselected="true"])~.right {
+        height: 50px;
+        color: transparent;
+    }
+
+    /* RIGHT SELECTED */
+    .right:hover,
+    .right:where([isselected="true"]) {
+        height: 150px;
+        color: white;
+    }
+    
+    .right:hover~.left,
+    .right:where([isselected="true"])~.left {
+        height: 50px;
+        color: transparent;
+    }
+}
