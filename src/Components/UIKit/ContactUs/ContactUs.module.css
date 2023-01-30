@@ -1,0 +1,51 @@
+.contactWrapper {
+  background: var(--secondary-color);
+  background-image: url("../../../Assets/images/contactUsBG.png");
+  padding-block: 50px;
+  max-width: 1440px;
+  margin-inline: auto;
+  background-size: 370px 150px;
+  padding-inline: 52px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.insight {
+  color: var(--light-bg-navbar-selected);
+  font-size: 21px;
+}
+
+.insight > p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.arrow {
+  color: var(--light-bg-navbar-selected);
+  font-size: 21px;
+  margin-bottom: -4px;
+  margin-left: 10px;
+}
+
+.buttonWrapper {
+  max-width: 220px;
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  .arrow {
+    display: none;
+  }
+  .contactWrapper {
+    background-size: 100% 100%;
+  }
+}

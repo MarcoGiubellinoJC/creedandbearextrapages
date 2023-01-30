@@ -1,0 +1,41 @@
+.partnerSlide {
+  width: 100%;
+  height: 100%;
+  margin: 20px 0;
+}
+.logoPartner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 40px;
+  height: 100%;
+  width: 100%;
+  filter: grayscale(1);
+  transition: 0.3s;
+}
+.logoPartner:hover {
+  filter: grayscale(0);
+}
+.logoPartnerSolution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 40px;
+  height: 100%;
+  width: 100%;
+  filter: brightness(0) invert(1);
+  transition: 0.3s;
+}
+.logoPartnerSolution:hover {
+  filter: brightness(1) invert(0);
+}
+.logoPartner img {
+  max-height: 40px;
+  max-width: 310px;
+}
+
+.logoPartnerSolution img {
+  max-height: 40px;
+  max-width: 310px;
+}
+/* filter: brightness(0) invert(1); */

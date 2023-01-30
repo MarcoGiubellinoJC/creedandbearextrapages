@@ -1,0 +1,30 @@
+.notFound {
+  padding: 150px 20px 0;
+}
+
+.image {
+  height: 730px;
+  /* background */
+  background-image: url("../../../Assets/images/404_bg.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.heading {
+  font-family: "Poppins", sans-serif;
+  color: var(--main-color);
+  text-align: center;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 576px;
+  font-family: "Poppins", sans-serif;
+  color: var(--main-color);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.link {
+  font-size: 1rem;
+}

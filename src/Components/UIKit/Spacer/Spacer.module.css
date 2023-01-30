@@ -1,0 +1,35 @@
+/* spacer general starts */
+.spacer {
+  display: flex;
+}
+/* spacer general ends */
+
+/* spacer Xl starts */
+.spacerXl {
+  height: 100px;
+}
+/* spacer Xl ends */
+
+/* spacer Lg starts */
+.spacerLg {
+  height: 50px;
+}
+/* spacer Lg ends */
+
+/* spacer Md starts */
+.spacerMd {
+  height: 25px;
+}
+/* spacer Md ends */
+
+/* spacer Sm starts */
+.spacerSm {
+  height: 10px;
+}
+/* spacer Sm ends */
+
+/* spacer Xs starts */
+.spacerXs {
+  height: 5px;
+}
+/* spacer Xs ends */

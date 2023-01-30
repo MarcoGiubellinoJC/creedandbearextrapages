@@ -1,0 +1,31 @@
+.link,
+.linkDark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  max-width: 200px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  padding: 10px 40px;
+  border: 1px solid var(--light-text);
+  color: var(--light-text);
+  transition: all 0.3s ease;
+}
+
+.linkDark {
+  color: var(--hero-bg);
+  border: 1px solid var(--hero-bg);
+}
+
+.link:hover {
+  background-color: var(--light-text);
+  color: var(--hero-bg);
+  cursor: pointer;
+}
+
+.linkDark:hover {
+  background-color: var(--hero-bg);
+  color: var(--light-text);
+}

@@ -1,0 +1,56 @@
+.container {
+  padding-inline: 52px;
+}
+
+.buttonStyle {
+  padding: 14px 40px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  transition: all 0.3s;
+  background-color: transparent;
+  color: #ffff;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.buttonStyle:hover {
+  background-color: #71319b;
+}
+
+.inputFieldStyle input {
+  border: 1px solid #eaebea;
+  border-radius: 7px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 129%;
+  color: #6f6f6f;
+}
+.inputFieldErrorStyle input {
+  border: 1px solid rgba(255, 28, 28, 0.733);
+  border-radius: 7px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 129%;
+  color: #6f6f6f;
+}
+.inputFieldSuccessStyle input {
+  border: 1px solid rgba(156, 240, 0, 0.733);
+  border-radius: 7px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 129%;
+  color: #6f6f6f;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-inline: 15px;
+  }
+}
