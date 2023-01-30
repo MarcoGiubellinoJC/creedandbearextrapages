@@ -1,0 +1,132 @@
+.componentWrapper {
+    padding-block: 50px;
+    margin-block: 50px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* TEAM MEMBER */
+.teamMember {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.teamMember:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+/* IMMAGINE */
+.memberImage {
+    flex: 1;
+    height: 100%;
+
+    background-image: url("../../../../../Assets/icons/ampersand_fade.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: grid;
+    place-items: center;
+}
+
+.memberImage>img {
+    height: 100%;
+    max-height: 450px;
+}
+
+/* CONTENT */
+.memberContent {
+    max-width: 50%;
+    font-size: 1rem;
+}
+
+.memberContent>h6 {
+    color: #222426;
+    font-family: 'Switzer', Poppins, sans-serif;
+    font-size: 2.5em;
+    font-weight: 600;
+    line-height: 144%;
+
+    margin-bottom: 20px;
+}
+
+.memberContent>p {
+    color: #222426;
+    font-family: 'Montserrat', Poppins, sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 130%;
+
+    margin-bottom: 20px;
+}
+
+.socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.socials>a {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #222426;
+
+    display: grid;
+    place-items: center;
+
+    color: #222426;
+}
+
+.socials>a:hover {
+    background-color: #222426;
+    color: white;
+}
+
+/* ---------------------------------------------------------------------------- MEDIA QUERIES */
+@media screen and (max-width: 992px) {
+    .memberContent {
+        padding-block: 20px;
+        max-width: 60%;
+        width: 60%;
+        font-size: .85rem;
+    }
+
+    .memberImage>img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .componentWrapper {
+        gap: 40px;
+    }
+
+    .teamMember {
+        flex-direction: column !important;
+        gap: 5px;
+    }
+
+    .memberImage>img {
+        max-width: 350px;
+    }
+
+    .memberContent {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+}
