@@ -2,7 +2,6 @@ import React from "react";
 
 // components
 import Navbar from "../../../Components/UIKit/Navbar/Navbar";
-import Footer from "../../../Components/UIKit/Footer/Footer";
 import Spacer from "../../../Components/UIKit/Spacer/Spacer";
 import Link from "../../../Components/UIKit/Link/Link";
 
@@ -31,7 +30,6 @@ const NotFoundView = () => {
         </Link>
         <Spacer xl />
       </Container>
-      <Footer />
     </>
   );
 };
