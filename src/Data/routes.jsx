@@ -12,6 +12,8 @@ import MainLayout from "../Layouts/MainLayout/MainLayout";
 // import ClientSolutionView from "../Views/Main/ClientSolutionView";
 // import StrategyView from "../Views/Main/StrategyView";
 // import ContactView from "../Views/Main/ContactView";
+import OurTeam from "../Views/Main/OurTeam/OurTeam.jsx";
+import PressRelease from "../Views/Main/PressRelease/PressRelease.jsx";
 
 const routes = {
   main: {
@@ -31,12 +33,12 @@ const routes = {
         title: "Solution",
         icon: <AiFillHome />,
       },
-    //   clientSolution: {
-    //     path: "client-solution",
-    //     element: <ClientSolutionView />,
-    //     title: "Client solution",
-    //     icon: <AiFillHome />,
-    //   },
+      //   clientSolution: {
+      //     path: "client-solution",
+      //     element: <ClientSolutionView />,
+      //     title: "Client solution",
+      //     icon: <AiFillHome />,
+      //   },
       strategy: {
         path: "strategy",
         element: undefined,
@@ -49,6 +51,18 @@ const routes = {
         title: "Contact",
         icon: <AiFillHome />,
       },
+      ourteam: {
+        path: "our-team",
+        element: <OurTeam/>,
+        title: "Our Team",
+        icon: <AiFillHome />,
+      },
+      pressrelease: {
+        path: "press-release",
+        element: <PressRelease/>,
+        title: "Press Release",
+        icon: <AiFillHome />,
+      }
     },
   },
 };
