@@ -3,3 +3,22 @@
     margin-inline: auto;
     overflow: hidden;
 }
+
+.caption {
+    max-width: 800px;
+    margin-inline: auto;
+
+    color: #232323;
+    font-family: 'Helvetica Neue', Helvetica;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 170%;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------------- MEDIA QUERIES */
+@media screen and (max-width: 576px) {
+    .caption {
+        font-size: 1rem;
+    }
+}
