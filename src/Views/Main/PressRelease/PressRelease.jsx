@@ -1,6 +1,15 @@
+
+//Components
+import GetInTouchForm from './Components/GetInTouchForm/GetInTouchForm.jsx'
+
+//Style
+import Style from './PressRelease.module.css'
+
 const PressRelease = () => {
     return (
-        <div></div>
+        <div className={Style.pageWrapper}>
+            <GetInTouchForm />
+        </div>
     )
 }
 

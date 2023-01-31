@@ -1,0 +1,252 @@
+.componentWrapper {
+    padding-top: 150px;
+}
+
+.formWrapper {
+    box-shadow: 22px 51px 100px rgba(145, 47, 94, 0.12);
+    border-radius: 7px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* FORM SECTION */
+.formSection {
+    flex: 1;
+    padding: 40px 80px;
+
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.formSection>* {
+    /* outline: 1px solid crimson; */
+}
+
+.formSection>h6 {
+    width: 100%;
+    margin-bottom: 30px;
+
+    color: #E5B1A5;
+    font-family: 'Inter', Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 120%;
+    letter-spacing: 1.83px;
+    text-transform: uppercase;
+}
+
+.firstname,
+.lastname,
+.email,
+.phonenumber,
+.message {
+    border-radius: 0px;
+    border-bottom: 2px solid #E3E8E8;
+}
+
+.firstname input,
+.lastname input,
+.email input,
+.phonenumber input,
+.message input {
+    color: black;
+    caret-color: black;
+}
+
+.inputError {
+    /* border-radius: 0px; */
+    border-bottom: 2px solid red;
+}
+
+.inputSuccess {
+    border-bottom: 2px solid #E3E8E8;
+}
+
+.inputContainerHalf {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.inputContainerHalf>* {
+    width: 100%;
+}
+
+.inputContainerFull {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.tos {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin-top: 50px;
+}
+
+.tos>input {
+    min-width: 22px;
+    min-height: 22px;
+}
+
+.tos>label {
+    max-width: 500px;
+
+    color: #86939E;
+    font-family: 'Montserrat', Poppins, sans-serif;
+    font-size: .85rem;
+    font-weight: 300;
+    line-height: 130%;
+
+    user-select: none;
+}
+
+.tos>label>a {
+    color: #A34256;
+    font-family: 'Inter', Poppins, sans-serif;
+    font-weight: 600;
+}
+
+.formSection>.button {
+    display: none;
+    margin-top: 50px;
+    border-radius: 6px;
+}
+
+/* SIDE SECTION */
+.sideSection {
+    padding: 120px 80px;
+    background-color: #313E3C;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 80px;
+}
+
+.sideItem>h4 {
+    color: white;
+    font-family: 'Inter', Poppins, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 120%;
+
+    text-align: left;
+}
+
+.sideItem>p {
+    margin-top: 30px;
+
+    color: #86939E;
+    font-family: 'Inter', Poppins, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 250%;
+    letter-spacing: .2px;
+
+}
+
+/* WIDE BUTTON */
+.button {
+    background-color: #A34256;
+    min-width: 100%;
+    padding: 25px;
+
+    color: white;
+    font-family: 'Inter', Poppins, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    user-select: none;
+}
+
+.button:not(.disabled):hover {
+    filter: saturate(1.5);
+}
+
+.disabled {
+    filter: saturate(0.1);
+}
+
+/* -------------------------------------------------------------- MEDIA QUERIES */
+@media screen and (max-width: 1100px) {
+    .sideSection {
+        padding: 40px;
+    }
+
+    .formSection {
+        padding: 40px;
+    }
+
+    .inputContainerHalf {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .inputContainerHalf {
+        gap: 30px;
+        flex-direction: column;
+    }
+
+    .sideSection {
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .formWrapper>.button {
+        display: none;
+    }
+
+    .formSection>.button {
+        display: flex;
+    }
+
+    .formWrapper {
+        flex-direction: column-reverse;
+    }
+
+    .formSection {
+        padding: 30px 20px;
+    }
+
+    .sideSection {
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 30px 20px;
+    }
+
+    .sideItem>h4 {
+        text-align: center;
+    }
+
+    .sideItem>p {
+        margin-top: 15px;
+        text-align: center;
+        line-height: 180%;
+    }
+}
