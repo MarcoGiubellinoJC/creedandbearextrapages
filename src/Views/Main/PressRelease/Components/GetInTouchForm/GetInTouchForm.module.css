@@ -16,17 +16,6 @@
 .formSection {
     flex: 1;
     padding: 40px 80px;
-
-    /* display: flex; */
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.formSection>* {
-    /* outline: 1px solid crimson; */
 }
 
 .formSection>h6 {
@@ -124,6 +113,19 @@
     display: none;
     margin-top: 50px;
     border-radius: 6px;
+}
+
+.errorMessage {
+    margin-block: 40px;
+    margin-inline: auto;
+
+    color: #c52041;
+    font-family: 'Inter', Poppins, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 /* SIDE SECTION */

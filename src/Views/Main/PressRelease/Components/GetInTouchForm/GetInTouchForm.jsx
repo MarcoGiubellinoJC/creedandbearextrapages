@@ -2,6 +2,7 @@ import { useState } from "react"
 
 //Libs
 import { Button, Container, InputField } from "@hybris-software/ui-kit"
+import useQuery from "@hybris-software/use-query";
 import useForm from "@hybris-software/use-ful-form"
 
 //Assets
@@ -11,12 +12,15 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import Style from './GetInTouchForm.module.css'
 
 const GetInTouchForm = () => {
+    const [tosAccepted, setTosAccepted] = useState(false)
+    const [error, setError] = useState('')
+    const [isSubmitted, setIsSubmitted] = useState(false)
     const form = useForm({
         inputs: {
-            firstname: {
+            name: {
                 required: true
             },
-            lastname: {
+            surname: {
                 required: true
             },
             email: {
@@ -24,7 +28,12 @@ const GetInTouchForm = () => {
                 required: true
             },
             phone: {
-                required: true
+                nature: 'numbers',
+                required: true,
+                validator: (value) => {
+                    var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+                    return re.test(value.split(' ').join('').split('-').join('')) ? [true, ''] : [false, 'Invalid phone number']
+                }
             },
             message: {
                 required: false
@@ -32,10 +41,33 @@ const GetInTouchForm = () => {
         }
     })
 
-    const [tosAccepted, setTosAccepted] = useState(false)
+    const contactApi = useQuery({
+        url: "api/v1/contactform/",
+        method: "POST",
+        executeImmediately: false,
+        onSuccess: (response) => {
+            setIsSubmitted(true)
+            setError("");
+        },
+        onError: (error) => {
+            if (error.response.status === 422) {
+                setFormError(error.response.data, form);
+            } else {
+                setError("something went wrong please try again");
+            }
+        },
+    });
+
+    function setFormError(errors) {
+        const keys = Object.keys(errors);
+        keys.forEach((key) => {
+            form.pushErrorDetails(key, errors[key]);
+        });
+    }
 
     const onSubmit = () => {
-        console.log(form.getApiBody())
+        setError('')
+        contactApi.executeQuery(form.getApiBody())
     }
 
     return (
@@ -46,20 +78,22 @@ const GetInTouchForm = () => {
                     <h6>YOUR DETAILS</h6>
                     <div className={Style.inputContainerHalf}>
                         <InputField
-                            {...form.getInputProps('firstname')}
+                            {...form.getInputProps('name')}
                             placeholder='First name*'
                             className={Style.firstname}
                             baseClassName={Style.firstname}
                             errorClassName={Style.inputError}
                             successClassName={Style.inputSuccess}
+                            readOnly={contactApi.isLoading || isSubmitted}
                         />
                         <InputField
-                            {...form.getInputProps('lastname')}
+                            {...form.getInputProps('surname')}
                             placeholder='Last name*'
                             className={Style.lastname}
                             baseClassName={Style.lastname}
                             errorClassName={Style.inputError}
                             successClassName={Style.inputSuccess}
+                            readOnly={contactApi.isLoading || isSubmitted}
                         />
                     </div>
                     <div className={Style.inputContainerFull}>
@@ -70,16 +104,19 @@ const GetInTouchForm = () => {
                             baseClassName={Style.email}
                             errorClassName={Style.inputError}
                             successClassName={Style.inputSuccess}
+                            readOnly={contactApi.isLoading || isSubmitted}
                         />
                     </div>
                     <div className={Style.inputContainerFull}>
                         <InputField
+                            type="tel"
                             {...form.getInputProps('phone')}
                             placeholder='Phone number'
                             className={Style.phonenumber}
                             baseClassName={Style.phonenumber}
                             errorClassName={Style.inputError}
                             successClassName={Style.inputSuccess}
+                            readOnly={contactApi.isLoading || isSubmitted}
                         />
                     </div>
                     <div className={Style.inputContainerFull}>
@@ -90,15 +127,33 @@ const GetInTouchForm = () => {
                             baseClassName={Style.message}
                             errorClassName={Style.inputError}
                             successClassName={Style.inputSuccess}
+                            readOnly={contactApi.isLoading || isSubmitted}
                         />
                     </div>
                     <div className={Style.tos}>
-                        <input type={'checkbox'} name='tos' id="tos" checked={tosAccepted} onChange={(e) => { setTosAccepted(e.target.checked) }} />
+                        <input
+                            type={'checkbox'}
+                            name='tos'
+                            id="tos"
+                            checked={tosAccepted}
+                            onChange={(e) => { setTosAccepted(e.target.checked) }}
+                            disabled={contactApi.isLoading || isSubmitted}
+                        />
                         <label htmlFor="tos">
                             By ticking this box, i agree that i have read the <a href="/privacy" target={'_blank'} rel='noreferref'>privacy policy</a> and consent to the given information being used by Copper to contact me.
                         </label>
                     </div>
-                    <Button buttonClassName={Style.button} disabledClassName={Style.disabled} disabled={!(tosAccepted && form.isValid())} onClick={onSubmit}>Send <AiOutlineArrowRight size={20} /></Button>
+                    {error && <h5 className={Style.errorMessage}>{error}</h5>}
+                    <Button
+                        buttonClassName={Style.button}
+                        disabledClassName={Style.disabled}
+                        disabled={!(tosAccepted && form.isValid())}
+                        onClick={onSubmit}
+                        loader="Loading..."
+                        isLoading={contactApi.isLoading || isSubmitted}
+                    >
+                        Send <AiOutlineArrowRight size={20} />
+                    </Button>
                 </div>
                 {/* SIDE */}
                 <div className={Style.sideSection}>
@@ -112,7 +167,16 @@ const GetInTouchForm = () => {
                     </div>
                 </div>
                 {/* BUTTON */}
-                <Button buttonClassName={Style.button} disabledClassName={Style.disabled} disabled={!(tosAccepted && form.isValid())} onClick={onSubmit}>Send <AiOutlineArrowRight size={20} /></Button>
+                <Button
+                    buttonClassName={Style.button}
+                    disabledClassName={Style.disabled}
+                    disabled={!(tosAccepted && form.isValid()) || error !== ''}
+                    onClick={onSubmit}
+                    loader={isSubmitted ? "Successfully submitted" : "Loading..."}
+                    isLoading={contactApi.isLoading || isSubmitted}
+                >
+                    Send <AiOutlineArrowRight size={20} />
+                </Button>
             </div>
         </Container>
     )
