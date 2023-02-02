@@ -14,6 +14,7 @@ import MainLayout from "../Layouts/MainLayout/MainLayout";
 // import ContactView from "../Views/Main/ContactView";
 import OurTeamView from "../Views/Main/OurTeamView/OurTeamView.jsx";
 import PressReleaseView from "../Views/Main/PressReleaseView/PressReleaseView.jsx";
+import PressPostView from "../Views/Main/PressPostView/PressPostView.jsx";
 
 const routes = {
   main: {
@@ -53,15 +54,21 @@ const routes = {
       },
       ourteam: {
         path: "our-team",
-        element: <OurTeamView/>,
+        element: <OurTeamView />,
         title: "Our Team",
         icon: <AiFillHome />,
       },
       pressrelease: {
         path: "press-release",
-        element: <PressReleaseView/>,
+        element: <PressReleaseView />,
         title: "Press Release",
         icon: <AiFillHome />,
+      },
+      presspost: {
+        path: "press-post",
+        element: <PressPostView />,
+        title: "Post",
+        icon: <AiFillHome />
       }
     },
   },
