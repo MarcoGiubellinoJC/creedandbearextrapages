@@ -10,14 +10,21 @@ import Style from './BrowseList.module.css'
 const BrowseList = ({ postList = [], page = 0, postsPerPage = 6, isLoading = true, loadingMessage = 'Loading ...' }) => {
 
     const renderPosts = () => {
-        if (postList.length <= 6)
+        if (postList.length <= postsPerPage)
             return postList
 
         let startIndex = page * postsPerPage
         let endIndex = ((page + 1) * postsPerPage) - 1
         let postsToRender = []
+
+        if (startIndex > postList.length) {
+            startIndex = postList.length - (postList.length % postsPerPage)
+            endIndex = postList.length - 1
+        }
+
         for (let i = startIndex; i < (endIndex + 1); i++) {
-            postsToRender.push(postList[i])
+            if (postList[i] !== undefined)
+                postsToRender.push(postList[i])
         }
 
         return postsToRender
