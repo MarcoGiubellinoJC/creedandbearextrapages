@@ -1,0 +1,30 @@
+.pageWrapper {
+    max-width: 1440px;
+    margin-inline: auto;
+    overflow-x: hidden;
+}
+
+/* SKELETON */
+.skeleton {
+    padding-top: 150px;
+    width: 100%;
+    text-align: center;
+}
+
+.textLine {
+    width: 400px;
+    max-width: 100%;
+    height: 25px;
+    background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+    border-radius: 7px;
+}
+
+.imageBlock {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+    border-radius: 7px;
+
+    margin-block: 20px;
+    margin-inline: auto;
+}
