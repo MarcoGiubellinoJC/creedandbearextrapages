@@ -1,5 +1,6 @@
 .componentWrapper {
     padding-top: 150px;
+    background-size: contain;
 }
 
 /* HERO TEXT */
@@ -18,18 +19,19 @@
 
 /* HIGHLIGHTED POST */
 .highlightPost {
-    border: 1px solid crimson;
     min-height: 400px;
     max-width: 1250px;
     margin-top: 50px;
     margin-inline: auto;
 
     border: 1px solid rgba(17, 17, 17, 0.1);
+    background-color: #FFFFFF;
     border-radius: 6px;
     overflow: hidden;
 
     display: flex;
     flex-direction: row;
+    transform: translateY(50px);
 }
 
 .postImage {

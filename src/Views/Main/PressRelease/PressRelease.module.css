@@ -3,3 +3,39 @@
     margin-inline: auto;
     overflow-x: hidden;
 }
+
+.pagination {
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.paginationButton {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(17, 17, 17, 0.1);
+    border-radius: 2px;
+
+    background-color: transparent;
+    color: #111111;
+    font-family: 'Montserrat', Poppins, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 150%;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.paginationButton[current="true"] {
+    background-color: #1F2D6F;
+    color: white;
+    font-weight: 700;
+}
