@@ -14,7 +14,7 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import { postList, highlightPostData, partners } from './data.js'
 
 //Style
-import Style from './PressRelease.module.css'
+import Style from './PressReleaseView.module.css'
 
 //Consts
 const POSTS_PER_PAGE = 6

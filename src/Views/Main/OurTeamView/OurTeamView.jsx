@@ -8,7 +8,7 @@ import TeamList from "./Components/TeamList/TeamList.jsx"
 import NewsletterBanner from "./Components/NewsletterBanner/NewsletterBanner.jsx"
 
 //Style
-import Style from "./OurTeam.module.css"
+import Style from "./OurTeamView.module.css"
 
 const OurTeam = () => {
     return (
