@@ -1,0 +1,88 @@
+.componentWrapper {
+    margin-bottom: 40px;
+}
+
+.banner {
+    width: 100%;
+    padding: 50px 100px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-image: url("../../../../../Assets//images//newsletterBannerBg2.png");
+    background-size: cover;
+    border-radius: 18px;
+}
+
+.text>h4 {
+    color: #E6943C;
+    font-family: 'Montserrat', Poppins, sans-serif;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.text>p {
+    color: white;
+    font-family: 'Montserrat', Poppins, sans-serif;
+    font-size: 1.25em;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+/* BUTTON */
+.button {
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 15px 35px;
+
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    color: #A34256;
+    background-color: white;
+    border-color: #A34256;
+    transition: 150ms;
+}
+
+/* ----------------------------------------------------------------- MEDIA QUERIES */
+@media screen and (max-width: 1150px) {
+    .banner {
+        padding: 40px 60px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .banner {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .text {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .banner {
+        padding: 30px;
+        background-image: linear-gradient(90deg, #1F2D6F 0%, #0E0E5E 100%);
+    }
+
+    .text {
+        font-size: .85rem;
+    }
+
+    .button {
+        width: fit-content;
+        font-size: .85rem;
+    }
+}
