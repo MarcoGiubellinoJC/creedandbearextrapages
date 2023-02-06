@@ -7,6 +7,10 @@ import BrowseList from './Components/BrowseList/BrowseList.jsx'
 import NewsletterBanner from './Components/NewsletterBanner/NewsletterBanner.jsx'
 import { PartnersSlider } from '../../../Components/Advanced/PartnersSlider/PartnersSlider.jsx'
 
+//Hooks
+import usePagination from '../../../Hooks/usePagination.jsx'
+import useWindowSize from '../../../Hooks/useWindowSize.js'
+
 //Assets
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
@@ -20,44 +24,13 @@ import Style from './PressReleaseView.module.css'
 const POSTS_PER_PAGE = 6
 
 const PressRelease = () => {
-    const [currentPage, setCurrentPage] = useState(0)
-
-    const changePage = (changeTo) => {
-        if (changeTo < 0)
-            return
-
-        let maxPage = ((postList.length - (postList.length % POSTS_PER_PAGE)) / POSTS_PER_PAGE) - 1 + (postList.length % POSTS_PER_PAGE > 0 ? 1 : 0)
-
-        if (changeTo <= maxPage)
-            setCurrentPage(changeTo)
-
-        return
-    }
-
-    const renderButtons = () => {
-        let maxPage = ((postList.length - (postList.length % POSTS_PER_PAGE)) / POSTS_PER_PAGE) - 1 + (postList.length % POSTS_PER_PAGE > 0 ? 1 : 0)
-        let buttons = []
-
-        if (maxPage < 5)
-            for (let i = 0; i <= maxPage; i++) {
-                buttons.push(<div className={Style.paginationButton} key={i} onClick={() => { changePage(i) }} current={(i === currentPage).toString()}>{i + 1}</div>)
-            }
-        else if (currentPage < 3) {
-            for (let i = 0; i < 5; i++) {
-                buttons.push(<div className={Style.paginationButton} key={i} onClick={() => { changePage(i) }} current={(i === currentPage).toString()}>{i + 1}</div>)
-            }
-        }
-        else if ((maxPage - currentPage) > 2)
-            for (let i = (currentPage - 2); i <= (currentPage + 2); i++) {
-                buttons.push(<div className={Style.paginationButton} key={i} onClick={() => { changePage(i) }} current={(i === currentPage).toString()}>{i + 1}</div>)
-            }
-        else
-            for (let i = (maxPage - 4); i <= maxPage; i++) {
-                buttons.push(<div className={Style.paginationButton} key={i} onClick={() => { changePage(i) }} current={(i === currentPage).toString()}>{i + 1}</div>)
-            }
-
-        return buttons
-    }
+    const { width } = useWindowSize()
+    const { currentPage, renderButtons, changePage } = usePagination(postList, {
+        postsPerPage: POSTS_PER_PAGE,
+        buttonClassname: Style.paginationButton,
+        activeButtonClassname: Style.paginationButtonActive,
+        paginationButtonsMaxNumber: width < 450 ? 3 : 5
+    })
 
     return (
         <div className={Style.pageWrapper}>
@@ -71,7 +44,7 @@ const PressRelease = () => {
                 }
                 <div className={Style.paginationButton} onClick={() => { changePage(currentPage + 1) }}><BsChevronRight size={'1rem'} /></div>
             </div>
-            
+
             <NewsletterBanner />
             <PartnersSlider data={partners} />
             {/* <GetInTouchForm /> */}
